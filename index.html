@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tile Website</title>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background-color: #222;
+      color: #fff;
+      font-size: 14px;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .top-bar a {
+      color: #fff;
+      margin-left: 15px;
+      text-decoration: none;
+    }
+
+    .top-bar a i {
+      margin-right: 5px;
+    }
+
+    /* Header */
+    .header {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: 900;
+      color: #e30613;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .search-box {
+      display: flex;
+      width: 300px;
+      margin: 10px;
+    }
+
+    .search-box input[type="text"] {
+      flex: 1;
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .search-box button {
+      padding: 8px 12px;
+      background-color: #e30613;
+      border: 1px solid #ccc;
+      border-left: none;
+      color: white;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+
+    .header-links a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .header-links a i {
+      margin-right: 5px;
+    }
+
+    /* Navigation Bar */
+    .nav-bar {
+      background-color: #e30613;
+      padding: 12px 0;
+      text-align: center;
+    }
+
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+      font-size: 15px;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+
+    .nav-bar a.active,
+    .nav-bar a:hover {
+      background-color: white;
+      color: #e30613;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url('https://th.bing.com/th/id/OIP.5npuU8BPohYIDR6b4JmG8gHaFj?r=0&rs=1&pid=ImgDetMain//via.placeholder.com/1200x500?text=Tile+Background');
+      background-size: cover;
+      background-position: center;
+      height: 500px;
+      position: relative;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      padding: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      color: #ddd;
+      margin-bottom: 30px;
+    }
+
+    .hero-content button {
+      background-color: #e30613;
+      border: none;
+      color: white;
+      font-size: 16px;
+      padding: 14px 28px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .hero-content button:hover {
+      background-color: #c20410;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header, .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .search-box {
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      .hero-content h1 {
+        font-size: 32px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+      }
+    }
+    /* Enhanced Feature Icons Section */
+.feature-icons {
+  padding: 80px 20px;
+  background-color: #f9f9f9;
+}
+
+.feature-icons-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.feature-icon {
+  background: white;
+  border-radius: 14px;
+  padding: 50px 20px;
+  flex: 1;
+  min-width: 220px;
+  max-width: 260px;
+  min-height: 260px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.feature-icon:hover {
+  transform: translateY(-14px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.22);
+}
+
+.feature-icon i {
+  font-size: 60px;              /* Larger Icon */
+  color: #d62828;               /* Deep Red for visibility */
+  margin-bottom: 25px;
+}
+
+.feature-icon h3 {
+  font-size: 22px;              /* Larger Text */
+  color: #1a1a1a;
+  font-weight: 700;
+  margin: 0;
+}
+/* Our Categories Section */
+.categories {
+  padding: 80px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.categories h2 {
+  font-size: 36px;
+  color: #e30613;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-item {
+  background: #f5f5f5;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.category-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.category-info {
+  padding: 20px;
+}
+
+.category-info h3 {
+  font-size: 20px;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.category-info p {
+  margin: 0 0 15px;
+  color: #666;
+}
+
+.category-info a {
+  color: #e30613;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.category-info a:hover {
+  text-decoration: underline;
+}
+/* Gallery Section */
+.gallery {
+  padding: 80px 20px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.gallery h2 {
+  font-size: 36px;
+  color: #e30613;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.gallery-overlay a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.testimonial-contact-box {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Left - Testimonial */
+.testimonial-box {
+  flex: 1;
+  background: url('https://www.contemporist.com/wp-content/uploads/2016/12/large-bathroom-tiles-111216-1143-15-800x560.jpg//via.placeholder.com/600x400') center center / cover no-repeat;
+  color: white;
+  position: relative;
+  padding: 40px;
+  min-height: 400px;
+}
+
+.testimonial-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+}
+
+.testimonial-box h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.client-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  margin-bottom: 10px;
+}
+
+.testimonial-box p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.testimonial-box strong {
+  color: #fff;
+  margin-top: 10px;
+}
+
+.dots {
+  margin-top: 15px;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  margin: 0 3px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.active {
+  background-color: #fff;
+}
+
+/* Right - Consultation Form */
+.consultation-form-box {
+  flex: 1;
+  background-color: #0057b7;
+  color: white;
+  padding: 40px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.consultation-form-box h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.consultation-form-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+}
+
+.input-group {
+  position: relative;
+  flex: 1;
+}
+
+.input-group.full {
+  flex: 1 0 100%;
+}
+
+.input-group i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 10px 10px 10px 35px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+}
+
+.consultation-form-box button {
+  padding: 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.consultation-form-box button:hover {
+  background-color: darkred;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonial-contact-box {
+    flex-direction: column;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+}
+.footer-top {
+  background-color: #f2f2f2;
+  padding: 30px 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+/* Columns */
+.footer-col {
+  flex: 1;
+  min-width: 260px;
+  text-align: center;
+}
+
+.footer-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/* Social Icons */
+.social-icons a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  margin: 0 5px;
+  color: white;
+  font-size: 16px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #999;
+  transition: 0.3s;
+}
+
+.social-icons a:nth-child(1) { background-color: #3b5998; } /* Facebook */
+.social-icons a:nth-child(2) { background-color: #1da1f2; } /* Twitter */
+.social-icons a:nth-child(3) { background-color: #dd4b39; } /* Google+ */
+.social-icons a:nth-child(4) { background-color: #0077b5; } /* LinkedIn */
+.social-icons a:nth-child(5) { background-color: #bd081c; } /* Pinterest */
+.social-icons a:nth-child(6) { background-color: #e4405f; } /* Instagram */
+
+.social-icons a:hover {
+  opacity: 0.8;
+}
+
+/* Newsletter Form */
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  padding: 10px 15px;
+  width: 280px;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.newsletter-form button {
+  padding: 10px 20px;
+  background-color: #e60000;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background-color: #c30000;
+}
+
+/* Catalog Button */
+.catalog-button {
+  display: inline-block;
+  background-color: #0057b7;
+  color: white;
+  padding: 12px 18px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background 0.3s ease;
+}
+
+.catalog-button i {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.catalog-button:hover {
+  background-color: #004099;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+  }
+}
+.main-footer {
+  background-color: #f2f2f2;
+  padding: 20px 0;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 10px 20px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #e60000;
+}
+
+.footer-divider {
+  width: 90%;
+  margin: 15px auto;
+  border: 0;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.footer-copy p {
+  color: #777;
+  font-size: 13px;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div>
+      <strong>FREE SAMPLE</strong> | Fast Free Delivery
+    </div>
+    <div>
+      <a href="mailto:sales@companyname.com"><i class="fas fa-envelope"></i>sales@companyname.com</a>
+      <a href="tel:0123456789"><i class="fas fa-phone"></i>0123456789</a>
+    </div>
+  </div>
+
+  <!-- Header Section -->
+  <div class="header">
+    <div class="logo">LOGO HERE</div>
+    <div class="search-box">
+      <input type="text" placeholder="Search..." />
+      <button><i class="fas fa-search"></i></button>
+    </div>
+    <div class="header-links">
+      <a href="#"><i class="fas fa-user"></i>Register</a>
+      <a href="#"><i class="fas fa-sign-in-alt"></i>Login</a>
+      <a href="#"><i class="fas fa-shopping-cart"></i>0 Item</a>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <div class="nav-bar">
+    <a href="#" class="active">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">All Tiles</a>
+    <a href="#">Wall Tiles</a>
+    <a href="#">Floor Tiles</a>
+    <a href="#">Bathroom Tiles</a>
+    <a href="#">Kitchen Tiles</a>
+    <a href="#">Offers</a>
+    <a href="#">Contact Us</a>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Discover Premium Quality Tiles</h1>
+      <p>Elevate your spaces with stylish wall & floor tiles at affordable prices.</p>
+      <button>View Gallery</button>
+    </div>
+  </div>
+  <section class="feature-icons">
+  <div class="feature-icons-container">
+
+    <div class="feature-icon">
+      <i class="fas fa-truck"></i>
+      <h3>Free Delivery</h3>
+    </div>
+
+    <div class="feature-icon">
+      <i class="fas fa-box-open"></i>
+      <h3>Order Samples</h3>
+    </div>
+
+    <div class="feature-icon">
+      <i class="fas fa-th-large"></i>
+      <h3>Over 3,500 Tiles</h3>
+    </div>
+
+    <div class="feature-icon">
+      <i class="fas fa-tags"></i>
+      <h3>Price Beat Promise</h3>
+    </div>
+
+  </div>
+</section>
+<!-- Our Categories Section -->
+<section class="categories">
+  <h2>OUR CATEGORIES</h2>
+  <div class="category-grid">
+
+    <!-- Category Tile 1 -->
+    <div class="category-item">
+      <img src="https://th.bing.com/th/id/OIP.2kN411H2Ibv9eILKUv6vFwHaH6?r=0&rs=1&pid=ImgDetMain//via.placeholder.com/300x180?text=Wall+Tile+1" alt="Tile 1">
+      <div class="category-info">
+        <h3>Lorem Ipsum 1</h3>
+        <p>Size: 300x450mm</p>
+        <a href="#">View Details »</a>
+      </div>
+    </div>
+
+    <!-- Category Tile 2 -->
+    <div class="category-item">
+      <img src="https://th.bing.com/th/id/OIP.X3bPh8YDYxEsbQOYwGj5tgHaHa?r=0&rs=1&pid=ImgDetMain//via.placeholder.com/300x180?text=Floor+Tile+2" alt="Tile 2">
+      <div class="category-info">
+        <h3>Lorem Ipsum 2</h3>
+        <p>Size: 300x450mm</p>
+        <a href="#">View Details »</a>
+      </div>
+    </div>
+
+    <!-- Category Tile 3 -->
+    <div class="category-item">
+      <img src="https://th.bing.com/th/id/OIP.DEv1ykfm5saVgNPQI00OEQHaE0?r=0&rs=1&pid=ImgDetMain//via.placeholder.com/300x180?text=Mosaic+3" alt="Tile 3">
+      <div class="category-info">
+        <h3>Lorem Ipsum 3</h3>
+        <p>Size: 300x450mm</p>
+        <a href="#">View Details »</a>
+      </div>
+    </div>
+
+    <!-- Category Tile 4 -->
+    <div class="category-item">
+      <img src="https://th.bing.com/th/id/R.ae5dcbdfc5732ccf5e698f4a07d078f6?rik=u9dFnaZ9%2fPhQQQ&pid=ImgRaw&r=0//via.placeholder.com/300x180?text=Wall+Tile+4" alt="Tile 4">
+      <div class="category-info">
+        <h3>Lorem Ipsum 4</h3>
+        <p>Size: 300x450mm</p>
+        <a href="#">View Details »</a>
+      </div>
+    </div>
+
+    <!-- Category Tile 5 -->
+    <div class="category-item">
+      <img src="https://th.bing.com/th/id/OIP.B-3Apad2Hkijo_4HRGmvWwAAAA?r=0&rs=1&pid=ImgDetMain//via.placeholder.com/300x180?text=Floor+Tile+5" alt="Tile 5">
+      <div class="category-info">
+        <h3>Lorem Ipsum 5</h3>
+        <p>Size: 300x450mm</p>
+        <a href="#">View Details »</a>
+      </div>
+    </div>
+
+    <!-- Category Tile 6 -->
+    <div class="category-item">
+      <img src="https://th.bing.com/th/id/R.7e34bf559f42d08022d3e606c4d407ba?rik=f0Hfw%2f3u2gNLjA&pid=ImgRaw&r=0//via.placeholder.com/300x180?text=Outdoor+6" alt="Tile 6">
+      <div class="category-info">
+        <h3>Lorem Ipsum 6</h3>
+        <p>Size: 300x450mm</p>
+        <a href="#">View Details »</a>
+      </div>
+    </div>
+
+    <!-- Category Tile 7 -->
+    <div class="category-item">
+      <img src="https://th.bing.com/th/id/OIP.wAIq3ksklLUeakVyaYCkzgHaEK?r=0&rs=1&pid=ImgDetMain//via.placeholder.com/300x180?text=Mosaic+7" alt="Tile 7">
+      <div class="category-info">
+        <h3>Lorem Ipsum 7</h3>
+        <p>Size: 300x450mm</p>
+        <a href="#">View Details »</a>
+      </div>
+    </div>
+
+    <!-- Category Tile 8 -->
+    <div class="category-item">
+      <img src="https://th.bing.com/th/id/OIP.DEv1ykfm5saVgNPQI00OEQHaE0?r=0&rs=1&pid=ImgDetMain//via.placeholder.com/300x180?text=Wall+Tile+8" alt="Tile 8">
+      <div class="category-info">
+        <h3>Lorem Ipsum 8</h3>
+        <p>Size: 300x450mm</p>
+        <a href="#">View Details »</a>
+      </div>
+    </div>
+
+    <!-- Category Tile 9 -->
+    <div class="category-item">
+      <img src="https://th.bing.com/th/id/OIP.DEv1ykfm5saVgNPQI00OEQHaE0?r=0&rs=1&pid=ImgDetMain//via.placeholder.com/300x180?text=Floor+Tile+9" alt="Tile 9">
+      <div class="category-info">
+        <h3>Lorem Ipsum 9</h3>
+        <p>Size: 300x450mm</p>
+        <a href="#">View Details »</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- Gallery Section -->
+<section class="gallery">
+  <h2>GALLERY</h2>
+  <div class="gallery-grid">
+
+    <!-- Gallery Item 1 -->
+    <div class="gallery-item">
+      <img src="https://th.bing.com/th/id/R.5ad9c481ea9a2092d7970e332afe2f66?rik=8x%2bQPkh92nLvSQ&pid=ImgRaw&r=0//via.placeholder.com/400x250?text=Tile+1" alt="Gallery Image 1">
+      <div class="gallery-overlay">
+        <h3>LOREM IPSUM</h3>
+        <a href="#">View Products</a>
+      </div>
+    </div>
+
+    <!-- Gallery Item 2 -->
+    <div class="gallery-item">
+      <img src="https://th.bing.com/th/id/OIP.wbjDxBq0fDkN9ohXbV6mswAAAA?r=0&rs=1&pid=ImgDetMain//via.placeholder.com/400x250?text=Tile+2" alt="Gallery Image 2">
+      <div class="gallery-overlay">
+        <h3>LOREM IPSUM</h3>
+        <a href="#">View Products</a>
+      </div>
+    </div>
+
+    <!-- Gallery Item 3 -->
+    <div class="gallery-item">
+      <img src="https://www.contemporist.com/wp-content/uploads/2016/12/large-bathroom-tiles-111216-1143-15-800x560.jpg//via.placeholder.com/400x250?text=Tile+3" alt="Gallery Image 3">
+      <div class="gallery-overlay">
+        <h3>LOREM IPSUM</h3>
+        <a href="#">View Products</a>
+      </div>
+    </div>
+
+    <!-- Gallery Item 4 -->
+    <div class="gallery-item">
+      <img src="https://th.bing.com/th/id/OIP.bH47MMirTtkXMJ2q104bkQHaLH?r=0&rs=1&pid=ImgDetMain//via.placeholder.com/400x250?text=Tile+4" alt="Gallery Image 4">
+      <div class="gallery-overlay">
+        <h3>LOREM IPSUM</h3>
+        <a href="#">View Products</a>
+      </div>
+    </div>
+
+    <!-- Gallery Item 5 -->
+    <div class="gallery-item">
+      <img src="https://www.contemporist.com/wp-content/uploads/2016/12/large-bathroom-tiles-111216-1143-15-800x560.jpg//via.placeholder.com/400x250?text=Tile+5" alt="Gallery Image 5">
+      <div class="gallery-overlay">
+        <h3>LOREM IPSUM</h3>
+        <a href="#">View Products</a>
+      </div>
+    </div>
+
+    <!-- Gallery Item 6 -->
+    <div class="gallery-item">
+      <img src="https://www.contemporist.com/wp-content/uploads/2016/12/large-bathroom-tiles-111216-1143-15-800x560.jpg//via.placeholder.com/400x250?text=Tile+6" alt="Gallery Image 6">
+      <div class="gallery-overlay">
+        <h3>LOREM IPSUM</h3>
+        <a href="#">View Products</a>
+      </div>
+    </div>
+
+    <!-- Gallery Item 7 -->
+    <div class="gallery-item">
+      <img src="https://www.contemporist.com/wp-content/uploads/2016/12/large-bathroom-tiles-111216-1143-15-800x560.jpg//via.placeholder.com/400x250?text=Tile+7" alt="Gallery Image 7">
+      <div class="gallery-overlay">
+        <h3>LOREM IPSUM</h3>
+        <a href="#">View Products</a>
+      </div>
+    </div>
+
+    <!-- Gallery Item 8 -->
+    <div class="gallery-item">
+      <img src="https://www.contemporist.com/wp-content/uploads/2016/12/large-bathroom-tiles-111216-1143-15-800x560.jpg//via.placeholder.com/400x250?text=Tile+8" alt="Gallery Image 8">
+      <div class="gallery-overlay">
+        <h3>LOREM IPSUM</h3>
+        <a href="#">View Products</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="testimonial-contact-box">
+  <!-- Left: Testimonial -->
+  <div class="testimonial-box">
+    <div class="testimonial-overlay">
+      <h3><i class="fas fa-user"></i> WHAT CLIENT SAYS</h3>
+      <img src="https://th.bing.com/th/id/OIP.Y4D8KcGu0326MS29E8RJrgHaE8?r=0&rs=1&pid=ImgDetMain//via.placeholder.com/80" alt="Client" class="client-img">
+      <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+      <strong>- LOREM IPSUM</strong>
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Contact Form -->
+  <div class="consultation-form-box">
+    <h3><i class="fas fa-headset"></i> GET FREE CONSULTATION !</h3>
+    <form>
+      <div class="row">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Name" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-phone"></i>
+          <input type="tel" placeholder="Phone Number" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="Email Address" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-box-open"></i>
+          <input type="text" placeholder="Product of Interest">
+        </div>
+      </div>
+      <div class="input-group full">
+        <textarea rows="3" placeholder="Details"></textarea>
+        <button type="submit">Send Message</button>
+      </div>
+    </form>
+  </div>
+</section>
+<footer class="footer-top">
+  <div class="footer-wrapper">
+    <!-- Column 1: Social Media -->
+    <div class="footer-col social">
+      <p class="footer-title">Follow Us On:</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <!-- Column 2: Newsletter -->
+    <div class="footer-col newsletter">
+      <p class="footer-title">Sign Up for Weekly Offers</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email address here..." />
+        <button type="submit">SUBSCRIBE</button>
+      </div>
+    </div>
+
+    <!-- Column 3: Catalog -->
+    <div class="footer-col catalog">
+      <p class="footer-title">Our Catalog</p>
+      <a href="#" class="catalog-button">
+        <i class="fas fa-file-pdf"></i> Click to Download Product Catalogs
+      </a>
+    </div>
+  </div>
+</footer>
+<footer class="main-footer">
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">All Tiles</a>
+    <a href="#">Wall Tiles</a>
+    <a href="#">Floor Tiles</a>
+    <a href="#">Bathroom Tiles</a>
+    <a href="#">Kitchen Tiles</a>
+    <a href="#">Offers</a>
+    <a href="#">Contact Us</a>
+  </div>
+
+  <hr class="footer-divider" />
+
+  <div class="footer-copy">
+    <p>Copyright © 2017 companyname.com. All Rights Reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
